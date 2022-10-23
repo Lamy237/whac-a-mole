@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@400;700&display=swap');
+
+/* || RESET */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* || VARIABLES */
+:root {
+    /* COLORS */
+    --BGIMAGE: linear-gradient(109.6deg, hsl(155, 90%, 60%) 11.2%, hsl(212, 92%, 46%) 91.1%);
+    --BORDER-COLOR: #333;
+    --BUTTON-BGCOLOR: #333;
+    --BUTTON-COLOR: #FFF;
+    --FONT-COLOR: #000;
+    --HEADER-BGCOLOR: teal;
+    --HEADER-COLOR: #FFF;
+    --SHADOW-COLOR: #3339;
+
+    /* BORDERS */
+    --BORDER-RADIUS: 0.75rem;
+    --BORDERS: 1px solid var(--BORDER-COLOR);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --BGIMAGE: linear-gradient(89.4deg, hsl(348, 100%, 38%) 0.8%, hsl(224, 82%, 22%) 99.4%);
+        --BORDER-COLOR: aliceblue;
+        --BUTTON-BGCOLOR: aliceblue;
+        --BUTTON-COLOR: #000;
+        --FONT-COLOR: aliceblue;
+        --HEADER-BGCOLOR: hsla(224, 82%, 22%, 0.7);
+        --HEADER-COLOR: aliceblue;
+        --SHADOW-COLOR: hsla(0, 0%, 96%, 0.6);
+    }
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -625rem;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.mole {
+    background-color: #3339;
+    background-image: url('../img/mole.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* || GENERAL STYLES */
+html {
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: var(--FONT-COLOR);
+    background-image: var(--BGIMAGE);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min(3.75rem, 5rem) auto;
+}
+
+.header {
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    text-align: center;
+    display: grid;
+    place-content: center;
+    box-shadow: 0 6px 5px var(--SHADOW-COLOR);
+}
+
+.header__h1 {
+    font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+}
+
+main {
+    font-size: clamp(1rem, 2vh, 1.5rem);
+    padding: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main__game-info {
+    /* 180px */
+    width: 11.25rem;
+    /* 90px */
+    height: 5.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.main__grid {
+    width: 28.125rem;
+    height: 28.125rem;
+    border: var(--BORDERS);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+}
+
+.square {
+    border: var(--BORDERS);
+}
+
+.main__controls {
+    min-width: 7.625rem;
+}
+
+button {
+    background-color: var(--BUTTON-BGCOLOR);
+    color: var(--BUTTON-COLOR);
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-weight: bolder;
+    border-radius: var(--BORDER-RADIUS);
+    cursor: pointer;
+    border: 1px solid var(--BUTTON-COLOR);
+}
+
+/* || MEDIA QUERIES */
+@media screen and (min-width: 36em) {
+    .header__h1::before {
+        content: "🎮 THE ";
+    }
+
+    .header__h1::after {
+        content: " 🎮";
+    }
+}
+
+@media screen and (max-width: 57.1875em) {
+    main {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 43.75em) {
+    .grid {
+        /* 300px */
+        width: 18.75rem;
+        height: 18.75rem;
+    }
+}

@@ -37,6 +37,7 @@ This is my solution to the **whac-a-mole game** taught by [Ania Kubów](https://
 - Flexbox
 - CSS Grid
 - Light + Dark Theme
+- Responsive web design
 
 
 ## Author
